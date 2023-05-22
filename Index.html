@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <title>Atlas Website Klimaat in Almere</title> <!--De atlas website heeft als onderwerp 'Het Klimaat in Almere'. 
     Dit onderwerp is gekozen omdat ik in de afgelopen jaren mij veel heb bezig gehouden met het onderzoeken naar klimaat 
-    en de impact dat klimaat heeft op de gezondheid van mensen en de leefbaarheid in de stad. Het onderwerp interesseert 
-    mij enorm. De locatie Almere is gekozen omdat hier meer data van beschikbaar is en ik het meest bekend ben met de stad.-->
+    en de impact op de gezondheid van mensen en de leefbaarheid in de stad. Het onderwerp interesseert mij enorm. 
+    De locatie Almere is gekozen omdat hier meer data van beschikbaar is en ik het meest bekend ben met de stad.-->
     
     <!--De doelgroep van deze atlas website zijn mensen die geinteresseerd zijn in klimaatverandering en de impact op de stad 
         hen persoonlijk. Ook geinteresseerde in ruimtelijke planning en de stad Almere zal de atlas website interessant vinden. 
@@ -17,7 +17,17 @@
     <h1>This is a title</h1>
 
     <p>This is a paragraph</p>
+       <script type="text/javascript">
+           var map = L.map('map').setView([51.505, -0.09], 13);
 
+           L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+               attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+           }).addTo(map);
+
+           L.marker([51.5, -0.09]).addTo(map)
+               .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+               .openPopup();
+       </script>
     <p>This is another paragraph</p>
 </body>
 </html>
