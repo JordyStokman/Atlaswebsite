@@ -25,44 +25,12 @@
 
     <div id="map"></div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-
-    <script>
-        //initialize the map
-        var map = L.map('map').setView([52.36645, 5.21835], 12);
-        //Create baselayer - tiles
-        var backgroundMap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
-            {
-                attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a>contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-                maxZoom: 19
-            }
-        );
-        backgroundMap.addTo(map);
-            //Leaflet viewer
-    </script>
+    <script src="Leaflet.js"></script>
 
 
     <div id="map1"></div>
     <script src="https://cdn.jsdelivr.net/npm/ol@v7.3.0/dist/ol.js"></script>
-
-    <script>
-        var mapView = new ol.View({
-            center: ol.proj.fromlonlat([52.36645, 5.21835]),
-            zoom: 12,
-        });
-
-        var map = new ol.Map({
-            target: 'map1',
-            view: mapView,
-        });
-
-        var osmTile = new ol.layer.Tile({
-            title: 'Open Street Map',
-            visible: true,
-            source: new ol.source.OSM()
-        });
-
-        map.addLayer(osmTile);
-    </script>
+    <script src="OpenLayers.js"></script>
 
     <p>This is another paragraph</p>
 
