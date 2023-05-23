@@ -9,4 +9,4 @@ var backgroundMap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/
     }
 );
 backgroundMap.addTo(map);
-            //Leaflet viewer
+//Leaflet viewer
