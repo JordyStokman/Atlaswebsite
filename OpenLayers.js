@@ -13,7 +13,7 @@ var map = new ol.Map({
     layers: [raster, vector],
     target: document.getElementById('map1'),
     view: new ol.View({
-        center: ol.proj.fromLonLat([7.817, 47.133]),
-        zoom: 11
+        center: ol.proj.fromLonLat([5.21835, 52.36645]),
+        zoom: 12
     })
 });
