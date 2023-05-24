@@ -1,4 +1,12 @@
-﻿body {
+﻿HTML
+body {
+}
+
+#viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 500px;
+    width: 50%;
 }
 
 #map {
@@ -10,3 +18,5 @@
     height: 500px;
     width: 50%;
 }
+
+
