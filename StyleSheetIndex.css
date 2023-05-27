@@ -2,6 +2,11 @@
 body {
 }
 
+#map2 {
+    height: 500px;
+    width: 50%;
+}
+
 #map {
     height: 500px;
     width: 50%;
@@ -11,5 +16,6 @@ body {
     height: 500px;
     width: 50%;
 }
+
 
 
