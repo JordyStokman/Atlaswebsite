@@ -80,4 +80,5 @@ map.on('load', () => {
         },
         'filter': ['==', '$type', 'Polygon']
     });
+    //MapLibre refuses to show any geoJSON, so I'll try to fix it'
 });
