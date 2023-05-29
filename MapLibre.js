@@ -10,16 +10,16 @@ var map = new maplibregl.Map({
 map.on('load', function () {
     map.addSource('my-data', {
         type: 'geojson',
-        data: 'netherlands-detailed-boundary_987.geojson'
+        data: 'https://gist.github.com/JordyStokman/6da4f6f74f486ff61ca545260c6b0a29'
     });
-});
 
-map.addLayer({
-    id: 'my-layer',
-    type: 'polygon',
-    source: 'my-data',
-    paint: {
-        'Fill-color': '#FFAA01',
-        'Fill-opacity': 0.5
-    }
+    map.addLayer({
+        id: 'my-layer',
+        type: 'fill',
+        source: 'my-data',
+        paint: {
+            'fill-color': '#ff0000',
+            'fill-opacity': 0.5
+        }
+    });
 });
