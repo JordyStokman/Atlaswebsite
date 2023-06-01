@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet Web Map with Query</title>
+    <link rel="stylesheet" href="StyleSheetIndex.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+
+</head>
+<body>
+
+    <ul>
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="ArcGISAPI.html">ArcGISApi</a></li>
+        <li><a href="Mapbox.html">Mapbox</a></li>
+
+    </ul>
+
+    <h1>Leaflet Web Map with Query</h1>
+    <div id="map"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Create the map
+        const map = L.map('map').setView([52.36645, 5.21835], 7);
+
+        // Add the basemap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Perform the query
+        const queryUrl = 'https://services.arcgis.com/nSZVuSZjHpEZZbRo/ArcGIS/rest/services/Gemeente_Gezondheidsmonitor_Ouderen_2016/FeatureServer/0/query?where=P_65_EO_JR%20%3E%2022&f=pgeojson&token=AAPK7559b245ac5a47f8b04ffd5ff7423160nueuaMS3gGQ3u9rkReM2fERDijX7W9WaeJ6zxVV_5pIIeH0yuikDTjORDmc6jrZE';
+
+        fetch(queryUrl)
+            .then(response => response.json())
+            .then(data => {
+                // Create a GeoJSON layer and add it to the map
+                const geojsonLayer = L.geoJSON(data).addTo(map);
+            })
+
+    </script>
+</body>
+</html>
+

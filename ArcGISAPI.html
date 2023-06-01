@@ -41,6 +41,12 @@
             });
             //Het script is hier in het HTML bestand geplaatst, aangezien de Longitude, latitude niet aangepast kon worden in een apart Javascript document
         });
+
+        var EPS = new MapEsriFeatureLayer({
+            url: 'https://services.arcgis.com/nSZVuSZjHpEZZbRo/ArcGIS/rest/services/Gemeente_Gezondheidsmonitor_Ouderen_2016/FeatureServer/0/query?where=P_65_EO_JR+%3E+22&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=&returnGeometry=true&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token='
+
+        }).addto(map);
+
     </script>
 
 </body>
