@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Atlas Website Klimaat in Almere</title>
-    <!--De atlas website heeft als onderwerp 'Het Klimaat in Almere'.
+    <!--De atlas website heeft als onderwerp 'De gezondheid in Nederland en Almere'.
     Dit onderwerp is gekozen omdat ik in de afgelopen jaren mij veel heb bezig gehouden met het onderzoeken naar klimaat
     en de impact op de gezondheid van mensen en de leefbaarheid in de stad. Het onderwerp interesseert mij enorm.
     De locatie Almere is gekozen omdat hier meer data van beschikbaar is en ik het meest bekend ben met de stad.-->
@@ -13,11 +13,16 @@
         Het doel van de website is het infromeren van de huidige situatie-->
 
 
-
     <link rel="stylesheet" href="StyleSheetIndex.css">
+
     <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@3.0.0/dist/maplibre-gl.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.css">
-
+    <style>
+        img {
+            max-width: 100%;
+            height: 675px;
+        }
+    </style>
 </head>
 <body>
     <ul>
@@ -25,9 +30,12 @@
         <li><a href="HTMLPage1.html">Gezondheid 65+</a></li>
         <li><a href="ArcGISAPI.html">ArcGISApi</a></li>
         <li><a href="Mapbox.html">Mapbox</a></li>
-
     </ul>
 
+    <div class="Image1">
+        <img src="Files&Images/World picture.jpg" alt="World picture" width="1502" height="675" />
+        <div class="center">Centered</div>
+    </div>
 
     <h1>This is a title</h1>
 
@@ -44,8 +52,9 @@
     <svg width="1000px" height="600px">
         <image xlink:href="Files&Images/Data-Illustrator.svg" width="2500px" height="2000px" />
     </svg>
+    <!--De data-Illustrator visualisatie heeft niet mijn voorkeur. Het data inladen werkt niet altijd en het programma heeft geen embed of iframe opties. De vrijheid van visualisatie -->
 
-    <p>This is another paragraph</p>
+        <p>This is another paragraph</p>
 
-</body>
-</html>
+    </body>
+    </html>

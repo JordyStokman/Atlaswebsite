@@ -25,11 +25,23 @@ li a {
     }  
 
 li a:hover {
-    background-color: #111;
+    background-color: lightblue;
     }
 
 .active {
     background-color: #04AA6D;
+}
+
+.Image1 {
+    position: relative;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
 }
 
 #map2 {
@@ -39,7 +51,7 @@ li a:hover {
 
 #map1 {
     height: 500px;
-    width: 50%;
+    width: 40%;
 }
 
 
