@@ -66,14 +66,57 @@ p1 {
     font-size: 20px;
 }
 
+p2 {
+    float: right;
+    background-color: lightcyan;
+    width: 43%;
+    border: 15px solid lightblue;
+    padding: 60px;
+    padding-bottom: 71px;
+    font-size: 17px;
+    overflow-block: hidden;
+}
+
 #map2 {
     height: 500px;
-    width: 40%;
+    width: 47%;
+}
+
+p3 {
+    float: left;
+    background-color: lightcyan;
+    width: 30%;
+    border: 15px solid lightblue;
+    padding: 50px;
+    margin: 20px;
+    margin-top: 50px;
+    font-size: 17px;
+}
+
+.Illustrator {
+    position: relative;
+    float: right;
+    width: 60%;
+    overflow: hidden;
+    padding-left: -10%;
+    margin-left: -100%;
+}
+
+p4 {
+    float: right;
+    background-color: lightcyan;
+    width: 43%;
+    border: 15px solid lightblue;
+    padding: 60px;
+    padding-bottom: 71px;
+    font-size: 17px;
+    margin-top: 99px;
+    overflow-block: hidden;
 }
 
 #map1 {
     height: 500px;
-    width: 40%;
+    width: 47%;
 }
 
 

@@ -18,9 +18,14 @@
     <ul>
         <li><a href="index.html">Home</a></li>
         <li><a class="active" href="HTMLPage1.html">Gezondheid 65+</a></li>
-        <li><a href="ArcGISAPI.html">ArcGISApi</a></li>
-        <li><a href="Mapbox.html">Mapbox</a></li>
+        <li><a href="ArcGISAPI.html">Covid-19</a></li>
+        <li><a href="Mapbox.html">Almere</a></li>
     </ul>
+
+    <div class="Image1">
+        <img src="Files&Images/World picture.jpg" alt="World picture" width="1502" height="675" />
+        <div class="center">De Gezondheid van de 65+</div>
+    </div>
 
     <h1>Leaflet Web Map with Query</h1>
     <div id="map"></div>
@@ -43,7 +48,7 @@
             .then(data => {
                 // Create a GeoJSON layer and add it to the map
                 const geojsonLayer = L.geoJSON(data).addTo(map);
-            })
+            })//Welke gemeentes hebben meer dan 20% 65+ voor inwoners
 
     </script>
 

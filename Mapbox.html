@@ -15,9 +15,14 @@
     <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="HTMLPage1.html">Gezondheid 65+</a></li>
-        <li><a href="ArcGISAPI.html">ArcGISApi</a></li>
-        <li><a class="active" href="Mapbox.html">Mapbox</a></li>
+        <li><a href="ArcGISAPI.html">Covid-19</a></li>
+        <li><a class="active" href="Mapbox.html">Almere</a></li>
     </ul>
+
+    <div class="Image1">
+        <img src="Files&Images/Floriade.jpg" alt="World picture" width="1502" height="675" />
+        <div class="center">Gezondheid in Almere</div>
+    </div>
 
     <div id="mapbox"></div>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
@@ -105,10 +110,11 @@
                 'filter': ['==', '$type', 'Polygon']
             });
         });
-                // This code has been put in a HTML file, because when put and connected in a JavaScript file, it doesn't show the geoJSON data on the map'
+                    // This code has been put in a HTML file, because when put and connected in a JavaScript file, it doesn't show the geoJSON data on the map'
     </script>
 
     <div class="flourish-embed flourish-map" data-src="visualisation/14040082">
-    <script src="https://public.flourish.studio/resources/embed.js"></script></div>
+        <script src="https://public.flourish.studio/resources/embed.js"></script>
+    </div>
 </body>
 </html>
