@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
 
+
 </head>
 <body>
 
@@ -110,7 +111,20 @@
                 'filter': ['==', '$type', 'Polygon']
             });
         });
-                    // This code has been put in a HTML file, because when put and connected in a JavaScript file, it doesn't show the geoJSON data on the map'
+
+
+                // This code has been put in a HTML file, because when put and connected in a JavaScript file, it doesn't show the geoJSON data on the map'
+    </script>
+
+    <div id="leaflet"></div>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+   
+    <script>
+    var leafletMap = L.map('leaflet').setView([52.36645, 5.21835], 10);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    }).addTo(leafletMap);
     </script>
 
     <div class="flourish-embed flourish-map" data-src="visualisation/14040082">
