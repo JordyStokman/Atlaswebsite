@@ -29,7 +29,6 @@
 
     <iframe title="Untitled" width="1024" height="576" src="https://ion.cesium.com/stories/viewer/?id=2f48873f-0908-4588-9764-cc2c060d7f47" frameborder="0" allow="fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-
     <div id="viewDiv"></div>
     <script src="https://js.arcgis.com/4.26/"></script>
     <script>
@@ -39,7 +38,6 @@
             "esri/views/MapView",
             "esri/layers/GeoJSONLayer"
         ], function (esriConfig, Map, MapView, GeoJSONLayer) {
-
             esriConfig.apiKey = "AAPK7559b245ac5a47f8b04ffd5ff7423160nueuaMS3gGQ3u9rkReM2fERDijX7W9WaeJ6zxVV_5pIIeH0yuikDTjORDmc6jrZE";
 
             const map = new Map({
@@ -49,22 +47,56 @@
             const view = new MapView({
                 map: map,
                 center: [5.21835, 52.36645], // Longitude, latitude
-                zoom: 12, // Zoom level
+                zoom: 8, // Zoom level
                 container: "viewDiv" // Div element
             });
 
-            // Add GeoJSON layer
+            // Added external API: GeoJSON layer
             const geojsonUrl = "https://demo.pygeoapi.io/covid-19/collections/cases_netherlands_hospitalized_per_municipality_polygons/items?f=json&limit=1000";
             const geojsonLayer = new GeoJSONLayer({
-                url: geojsonUrl
+                url: geojsonUrl,
+                popupTemplate: {
+                    title: "Gehospitaliseerd: {Gemeentenaam}",
+                    content: [{
+                        type: "fields",
+                        fieldInfos: [
+                            {
+                                fieldName: "Aantal",
+                                label: "Aantal",
+                                format: {
+                                    digitSeparator: true,
+                                    places: 0
+                                }
+                            },
+                            {
+                                fieldName: "Aantal_per_100000",
+                                label: "Aantal_per_100000",
+                                format: {
+                                    digitSeparator: true,
+                                    places: 0
+                                }
+                            },
+                        ]
+                    }]
+                },
+                renderer: {
+                    type: "simple",
+                    symbol: {
+                        type: "simple-fill"
+                    },
+                    visualVariables: [{
+                        type: "color",
+                        field: "Aantal_per_100000",
+                        stops: [
+                            { value: 0, color: "rgba(255, 255, 255, 0)" }, // Define the color at the minimum value
+                            { value: 150, color: "rgba(255, 0, 0, 1)" } // Define the color at the maximum value
+                        ]
+                    }]
+                }
             });
+
             map.add(geojsonLayer);
         });
     </script>
-
-
-
-    </script>
-
 </body>
 </html>
