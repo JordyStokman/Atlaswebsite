@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="StyleSheetIndex.css">
     <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@3.0.0/dist/maplibre-gl.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.css">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+
+
 </head>
 <body>
     <ul>
@@ -66,17 +68,17 @@
     <!--De data-Illustrator visualisatie heeft niet mijn voorkeur. Het data inladen werkt niet altijd en het programma heeft geen embed of iframe opties. De vrijheid van visualisatie -->
 
     <p3>
-    Ook is de leeftijdsopbouw van de Nederlandse bevolking niet ideaal. Kinderen en voornamelijk ouderen worden gezien als kwatsbare groepen in de gezondheidszorg.
-    Ouderen zijn meer vatbaar voor gezondheidsproblemen en hebben vaker zorg nodig. 
-    <br />
-    Kijkend naar de leeftijdsopbouw, gevisualiseerd in de figuur rechts van hier, zijn er een hoog aantal ouderen in Nederland. Ongeveer 49% van alle inwoners
-    zijn 50 jaar of ouder. Daar tegenover staat dat er maar weinig kinderen geboren worden. Zo is de populatie kinderen van 0-18 jaar in Nederland maar 13%. In de 
-    middenklasses zijn de (jong)volwassenen. Zij vormen samen 38% van de populatie. Er is in deze visualisatie duidelijk te zien dat Nederland een vergrijzings 
-    probleem heeft. Kijkend naar het figuur is er een duidelijke afname te zien in percentage, des te jonger de bevolking wordt. Dit kan liggen aan het feit dat 
-    gezinnen minder kinderen nemen dan voorheen.
-    <br />
-    De reden voor het weergeven van deze data is om te laten zien dat de bevolking vergrijzt. Zoals eerder genoemd, ouderen vallen onder de kwetsbare doelgroep,
-    en aangezien 49% van de bevolking ouder is dan 50 jaar betekend dit dat er een grote groep mensen zijn waarbij de zorg rekening moet houden.
+        Ook is de leeftijdsopbouw van de Nederlandse bevolking niet ideaal. Kinderen en voornamelijk ouderen worden gezien als kwatsbare groepen in de gezondheidszorg.
+        Ouderen zijn meer vatbaar voor gezondheidsproblemen en hebben vaker zorg nodig.
+        <br />
+        Kijkend naar de leeftijdsopbouw, gevisualiseerd in de figuur rechts van hier, zijn er een hoog aantal ouderen in Nederland. Ongeveer 49% van alle inwoners
+        zijn 50 jaar of ouder. Daar tegenover staat dat er maar weinig kinderen geboren worden. Zo is de populatie kinderen van 0-18 jaar in Nederland maar 13%. In de
+        middenklasses zijn de (jong)volwassenen. Zij vormen samen 38% van de populatie. Er is in deze visualisatie duidelijk te zien dat Nederland een vergrijzings
+        probleem heeft. Kijkend naar het figuur is er een duidelijke afname te zien in percentage, des te jonger de bevolking wordt. Dit kan liggen aan het feit dat
+        gezinnen minder kinderen nemen dan voorheen.
+        <br />
+        De reden voor het weergeven van deze data is om te laten zien dat de bevolking vergrijzt. Zoals eerder genoemd, ouderen vallen onder de kwetsbare doelgroep,
+        en aangezien 49% van de bevolking ouder is dan 50 jaar betekend dit dat er een grote groep mensen zijn waarbij de zorg rekening moet houden.
     </p3>
 
     <div id="map1"></div>
@@ -84,8 +86,33 @@
     <script src="OpenLayers.js"></script>
 
     <p4>
-        Openlayers
+        Openlayers<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </p4>
+
+
+    <div id="leaflet"></div>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <script>
+        var leafletMap = L.map('leaflet').setView([40.707, -73.941], 11);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+        }).addTo(leafletMap);
+
+
+        fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.geojson?$where=descriptor%20%3D%20%27Social%20Distancing%27%20and%20created_date%20%3E%3D%20%272021%27')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                L.geoJSON(data, {
+                    style: function (feature) {
+                        return;
+                    }
+                }).addTo(leafletMap);
+            });
+    </script>
 
 </body>
     </html>
