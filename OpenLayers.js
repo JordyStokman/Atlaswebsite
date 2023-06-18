@@ -28,3 +28,36 @@ var map = new ol.Map({
     })
 });
 
+// Create a pop-up overlay
+var popup = new ol.Overlay({
+    element: document.getElementById('popup'),
+    autoPan: true,
+    autoPanAnimation: {
+        duration: 250
+    }
+});
+map.addOverlay(popup);
+
+// Add click event listener to the map
+map.on('click', function (event) {
+    var feature = map.forEachFeatureAtPixel(event.pixel, function (feature) {
+        return feature;
+    });
+
+    if (feature) {
+        var coordinate = event.coordinate;
+        var properties = feature.getProperties();
+        var content = '<ul>';
+        for (var prop in properties) {
+            if (properties.hasOwnProperty(prop)) {
+                content += '<li><strong>' + prop + ':</strong> ' + properties[prop] + '</li>';
+            }
+        }
+        content += '</ul>';
+        popup.setPosition(coordinate);
+        document.getElementById('popup-content').innerHTML = content;
+    } else {
+        popup.setPosition(undefined);
+    }
+});
+//Helaas kan ik er niet voor zorgen om de map een pop-up te laten verschijnen. Misschien ligt dit aan de connectie met de Geoserver en dat de code dit niet kan ophalen, maar het lukt mij helaas niet om dit op te halen.

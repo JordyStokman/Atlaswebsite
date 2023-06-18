@@ -56,10 +56,16 @@ img {
     padding: 0;
     margin: 0;
     height: 500px;
-    width: 50%;
+    width: 65%;
 }
 
-#map {
-    height: 500px;
+.esri-widget {
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+}
+
+.esri-legend__layer-caption {
+    font-weight: bold;
+    margin-bottom: 8px;
 }
 

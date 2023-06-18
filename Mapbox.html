@@ -7,8 +7,6 @@
 
     <link rel="stylesheet" href="StyleSheetMapbox.css">
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
-
 
 </head>
 <body>
@@ -34,7 +32,7 @@
             // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
             style: 'mapbox://styles/mapbox/outdoors-v12',
             center: [5.21835, 52.36645],
-            zoom: 10
+            zoom: 8
         });
 
         map.on('load', () => {
@@ -114,30 +112,6 @@
 
 
         // This code has been put in a HTML file, because when put and connected in a JavaScript file, it doesn't show the geoJSON data on the map'
-    </script>
-
-    <div id="leaflet"></div>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
-
-    <script>
-        var leafletMap = L.map('leaflet').setView([40.707, -73.941], 11);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 18,
-        }).addTo(leafletMap);
-
-
-        fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.geojson?$where=descriptor%20%3D%20%27Social%20Distancing%27%20and%20created_date%20%3E%3D%20%272021%27')
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                L.geoJSON(data, {
-                    style: function (feature) {
-                        return;
-                    }
-                }).addTo(leafletMap);
-            });
     </script>
 
     <div class="flourish-embed flourish-map" data-src="visualisation/14040082">

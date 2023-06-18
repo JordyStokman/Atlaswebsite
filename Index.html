@@ -3,7 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Atlas Website Klimaat in Almere</title>
+    <title>Atlas Website Gezondheid</title>
     <!--De atlas website heeft als onderwerp 'De gezondheid in Nederland en Almere'.
     Dit onderwerp is gekozen omdat ik in de afgelopen jaren mij veel heb bezig gehouden met het onderzoeken naar klimaat
     en de impact op de gezondheid van mensen en de leefbaarheid in de stad. Het onderwerp interesseert mij enorm.
@@ -30,7 +30,7 @@
 
     <div class="Image1">
         <img src="Files&Images/Cycling.jpg" alt="World picture" width="1502" height="675" />
-        <div class="center">De Gezondheid in Nederland</div>
+        <div class="center">Het thema gezondheid</div>
     </div>
 
     <div class="rectangle">
@@ -82,6 +82,11 @@
     </p3>
 
     <div id="map1"></div>
+    <div id="popup" class="ol-popup">
+        <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+        <div id="popup-content"></div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/ol@v7.3.0/dist/ol.js"></script>
     <script src="OpenLayers.js"></script>
 
@@ -100,7 +105,6 @@
             maxZoom: 18,
         }).addTo(leafletMap);
 
-
         fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.geojson?$where=descriptor%20%3D%20%27Social%20Distancing%27%20and%20created_date%20%3E%3D%20%272021%27')
             .then(function (response) {
                 return response.json();
@@ -109,8 +113,14 @@
                 L.geoJSON(data, {
                     style: function (feature) {
                         return;
+                    },
+                    onEachFeature: function (feature, layer) {
+                        if (feature.properties && feature.properties.street_name) {
+                            layer.bindPopup(feature.properties.street_name);
+                        }
                     }
-                }).addTo(leafletMap);
+                })
+                    .addTo(leafletMap);
             });
     </script>
 

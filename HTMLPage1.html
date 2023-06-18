@@ -60,6 +60,31 @@
             float: right;
         }
 
+        .legend {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+        }
+
+            .legend div {
+                margin-bottom: 5px;
+            }
+
+            .legend i {
+                width: 18px;
+                height: 18px;
+                float: left;
+                margin-right: 8px;
+                opacity: 0.8;
+            }
+
+        .legend-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+
         p1 {
             float: left;
             background-color: lightcyan;
@@ -98,7 +123,7 @@
 
     <div class="Image1">
         <img src="Files&Images/World picture.jpg" alt="World picture" width="1502" height="675" />
-        <div class="center">De Gezondheid van de 65+</div>
+        <div class="center">De Gezondheid van de 65+'ers</div>
     </div>
 
     <p1>gemeentes met meer dan 20% 65+érs<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p1>
@@ -116,14 +141,89 @@
         }).addTo(map);
 
         // Perform the query
-        const queryUrl = 'https://services.arcgis.com/nSZVuSZjHpEZZbRo/ArcGIS/rest/services/Gemeente_Gezondheidsmonitor_Ouderen_2016/FeatureServer/0/query?where=P_65_EO_JR%20%3E%2022&f=pgeojson&token=AAPK7559b245ac5a47f8b04ffd5ff7423160nueuaMS3gGQ3u9rkReM2fERDijX7W9WaeJ6zxVV_5pIIeH0yuikDTjORDmc6jrZE';
+        const queryUrl = 'https://services.arcgis.com/nSZVuSZjHpEZZbRo/ArcGIS/rest/services/Gemeente_Gezondheidsmonitor_Ouderen_2016/FeatureServer/0//query?where=P_65_EO_JR+%3E+20&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=GM_NAAM%2C+P_65_EO_JR+&returnGeometry=true&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=true&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token=';
 
         fetch(queryUrl)
             .then(response => response.json())
             .then(data => {
                 // Create a GeoJSON layer and add it to the map
-                const geojsonLayer = L.geoJSON(data).addTo(map);
-            })//Welke gemeentes hebben meer dan 20% 65+ voor inwoners
+                const geojsonLayer = L.geoJSON(data, {
+                    style: function (feature) {
+                        const P_65_EO_JR = feature.properties.P_65_EO_JR;
+                        // Define the color based on the attribute value
+                        const color = getColor(P_65_EO_JR);
+                        // Return the style options including the color
+                        return {
+                            fillColor: color,
+                            weight: 1,
+                            opacity: 1,
+                            color: 'white',
+                            fillOpacity: 0.8
+                        };
+                    },
+                    onEachFeature: function (feature, layer) {
+                        // Extract the data you want to display in the pop-up
+                        const GM_NAAM = feature.properties.GM_NAAM;
+                        const P_65_EO_JR = feature.properties.P_65_EO_JR;
+
+                        // Create a pop-up content string
+                        const popupContent = `<strong>Gemeente: </strong>${GM_NAAM}<br><strong>Percentage 65+: </strong>${P_65_EO_JR}%`;
+
+                        // Bind the pop-up to the layer
+                        layer.bindPopup(popupContent);
+                    }
+                }).addTo(map);
+
+                // Add a legend control to the map
+                const legend = L.control({ position: 'bottomright' });
+                legend.onAdd = function (map) {
+                    const div = L.DomUtil.create('div', 'legend');
+                    const grades = [20, 22, 24, 26, 28];
+                    const labels = [];
+
+                    // Add the legend title
+                    const legendTitle = L.DomUtil.create('div', 'legend-title');
+                    legendTitle.innerHTML = 'Percentage 65+&eacute;rs';
+                    div.appendChild(legendTitle);
+
+                    // Loop through the attribute ranges and generate labels with corresponding colors
+                    for (let i = 0; i < grades.length; i++) {
+                        const from = grades[i];
+                        const to = grades[i + 1];
+                        const color = getColor(from + 1);
+
+                        labels.push(
+                            `<div><i style="background:${color}"></i>${from + 1} ${to ? '&ndash;' + to : '+'}</div>`
+                        );
+                    }
+
+                    div.innerHTML += labels.join('');
+                    return div;
+                };
+                legend.addTo(map);
+            });
+
+        // Define the getColor function to assign colors based on attribute values
+        function getColor(value) {
+            // Define your color gradient based on attribute values
+            const gradient = [
+                { value: 20, color: '#F6BDC0' },
+                { value: 22, color: '#F1959B' },
+                { value: 24, color: '#F07470' },
+                { value: 26, color: '#EA4C46' },
+                { value: 28, color: '#DC1C13' }
+            ];
+
+            // Find the appropriate color based on the attribute value
+            for (let i = 1; i < gradient.length; i++) {
+                if (value < gradient[i].value) {
+                    return gradient[i - 1].color;
+                }
+            }
+
+            // Return the last color in the gradient if value is higher than all defined values
+            return gradient[gradient.length - 1].color;
+        }
 
     </script>
 

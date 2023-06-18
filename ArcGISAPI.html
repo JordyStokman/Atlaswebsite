@@ -37,8 +37,9 @@
             "esri/config",
             "esri/Map",
             "esri/views/MapView",
+            "esri/widgets/Legend",
             "esri/layers/GeoJSONLayer"
-        ], function (esriConfig, Map, MapView, GeoJSONLayer) {
+        ], function (esriConfig, Map, MapView, Legend, GeoJSONLayer) {
             esriConfig.apiKey = "AAPK7559b245ac5a47f8b04ffd5ff7423160nueuaMS3gGQ3u9rkReM2fERDijX7W9WaeJ6zxVV_5pIIeH0yuikDTjORDmc6jrZE";
 
             const map = new Map({
@@ -47,12 +48,12 @@
 
             const view = new MapView({
                 map: map,
-                center: [5.21835, 52.36645], // Longitude, latitude
-                zoom: 8, // Zoom level
+                center: [5.386061114309225, 52.16314234773969], // Longitude, latitude
+                zoom: 7, // Zoom level
                 container: "viewDiv" // Div element
             });
 
-            // externe API toegepast: GeoJSON layer
+            // External API applied: GeoJSON layer
             const geojsonUrl = "https://demo.pygeoapi.io/covid-19/collections/cases_netherlands_hospitalized_per_municipality_polygons/items?f=json&limit=1000";
             const geojsonLayer = new GeoJSONLayer({
                 url: geojsonUrl,
@@ -97,6 +98,20 @@
             });
 
             map.add(geojsonLayer);
+
+            // Create a legend
+            const legend = new Legend({
+                view: view,
+                layerInfos: [
+                    {
+                        layer: geojsonLayer,
+                        title: "Aantal gehospitaliseerde per 100.000 inwoners tijdens de Covid periode, per gemeente"
+                    }
+                ]
+            });
+
+            // Add the legend to the view
+            view.ui.add(legend, "bottom-right");
         });
     </script>
 </body>
