@@ -79,7 +79,8 @@ p1 {
     border-right: 15px solid lightblue;
     border-bottom: 15px solid lightblue;
     padding: 60px;
-    padding-bottom: 70px;
+    padding-top: 40px;
+    padding-bottom: 44px;
     font-size: 17px;
     overflow-block: hidden;
 }

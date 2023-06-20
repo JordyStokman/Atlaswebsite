@@ -73,7 +73,7 @@ p1 {
     border-left: 15px solid lightblue;
     border-right: 15px solid lightblue;
     padding: 60px;
-    padding-bottom: 500px;
+    padding-bottom: 77px;
     font-size: 17px;
     overflow-block: hidden;
 }
@@ -111,8 +111,9 @@ p4 {
     width: 26%;
     border-left: 15px solid lightblue;
     border-right: 15px solid lightblue;
-    padding: 60px;
-    padding-bottom: 420px;
+    padding: 68px;
+    padding-top: 37px;
+    padding-bottom: 60px;
     font-size: 17px;
     overflow-block: hidden;
 }
