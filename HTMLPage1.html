@@ -54,6 +54,20 @@
             opacity: 0.8;
         }
 
+        .rectangle {
+            height: 200px;
+            width: 100%;
+            background-color: lightblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        p3 {
+            text-align: center;
+            font-size: 20px;
+        }
+
         #map {
             height: 500px;
             width: 47%;
@@ -89,11 +103,22 @@
             float: left;
             background-color: lightcyan;
             width: 43%;
-            border: 15px solid lightblue;
+            border-left: 15px solid lightblue;
+            border-right: 15px solid lightblue;
             padding: 60px;
-            padding-bottom: 71px;
+            padding-right: 61px;
+            padding-bottom: 420px;
             font-size: 17px;
             overflow-block: hidden;
+        }
+
+        .rectangle1 {
+            height: 15px;
+            width: 100%;
+            background-color: lightblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         iframe {
@@ -104,10 +129,18 @@
             background-color: lightcyan;
             width: 37%;
             border: 15px solid lightblue;
-            padding: 60px;
-            padding-bottom: 50px;
+            padding: 61px;
+            padding-bottom: 600px;
+            padding-top: 60px;
             font-size: 17px;
             overflow-block: hidden;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3px;
+            background-color: lightblue;
+            color: white;
         }
     </style>
 
@@ -126,7 +159,15 @@
         <div class="center">De Gezondheid van de 65+'ers</div>
     </div>
 
-    <p1>gemeentes met meer dan 20% 65+érs<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p1>
+    <div class="rectangle">
+        <p3 class="rectangle">
+            In de afgelopen aantal jaren heeft gezondheid een belangrijke rol gespeeld in de maatschappij. <br /> Helemaal met de afgelopen
+            pandemie, maar ook met de bevolkings verdeling in ons land. <br /> Op deze website zal het concept van gezondheid besproken worden. <br /> Hierbij wordt op deze
+            hoofdpagina de demografie van Nederland besproken. <br />Daarnaast worden de onderwerpen Ouderen, Covid-19 & de gezondheid situatie in Almere.
+        </p3>
+    </div>
+
+    <p1>gemeentes met meer dan 20% 65+érs</p1>
 
     <div id="map"></div>
 
@@ -227,9 +268,11 @@
 
     </script>
 
+    <div class="rectangle1"></div>
+
     <br />
 
-    <p2>Percentage inwoners 65+ in Europa<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p2>
+    <p2>Percentage inwoners 65+ in Europa</p2>
 
 
     <iframe title="Percentage inwoners 65+ in Europa" aria-label="Map" id="datawrapper-chart-0CbeM" src="https://datawrapper.dwcdn.net/0CbeM/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 50% !important; border: none;" height="635" data-external="1"></iframe>
@@ -240,6 +283,14 @@
     <div class="infogram-embed" data-id="06701a76-32a8-4f27-8ed2-cc7d66f6a31b" data-type="interactive" data-title="Benelux percentage 65+ van 1950 tot 2020"></div>
     <script>!function (e, i, n, s) { var t = "InfogramEmbeds", d = e.getElementsByTagName("script")[0]; if (window[t] && window[t].initialized) window[t].process && window[t].process(); else if (!e.getElementById(n)) { var o = e.createElement("script"); o.async = 1, o.id = n, o.src = "https://e.infogram.com/js/dist/embed-loader-min.js", d.parentNode.insertBefore(o, d) } }(document, 0, "infogram-async");</script><div style="padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px"><a href="https://infogram.com/06701a76-32a8-4f27-8ed2-cc7d66f6a31b" style="color:#989898!important;text-decoration:none!important;" target="_blank">Benelux percentage 65+ van 1950 tot 2020</a><br><a href="https://infogram.com" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Infogram</a></div>
 
+    <footer>
+        <p6>
+            Schrijver: Jordy Stokman <br />
+            Module: Webcartografie <br />
+            Klas: 4GMD
+
+        </p6>
+    </footer>
 </body>
 </html>
 

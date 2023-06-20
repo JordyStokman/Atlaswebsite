@@ -63,16 +63,17 @@ img {
 
 p1 {
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 p2 {
     float: right;
     background-color: lightcyan;
-    width: 43%;
+    width: 46%;
     border: 15px solid lightblue;
-    padding: 60px;
-    padding-bottom: 71px;
+    padding: 35px;
+    padding-left: 41px;
+    padding-bottom: 54px;
     font-size: 17px;
     overflow-block: hidden;
 }
@@ -88,8 +89,11 @@ p3 {
     width: 30%;
     border: 15px solid lightblue;
     padding: 50px;
+    padding-top: 15px;
+    padding-bottom: 24px;
     margin: 20px;
-    margin-top: 50px;
+    margin-top: 36px;
+    margin-bottom: 36px;
     font-size: 17px;
 }
 
@@ -106,9 +110,12 @@ p4 {
     float: right;
     background-color: lightcyan;
     width: 43%;
-    border: 15px solid lightblue;
+    border-left: 15px solid lightblue;
+    border-right: 15px solid lightblue;
+    border-top: 15px solid lightblue;
     padding: 60px;
-    padding-bottom: 71px;
+    padding-bottom: 50px;
+    padding-top: 35px;
     font-size: 17px;
     margin-top: 99px;
     overflow-block: hidden;
@@ -119,33 +126,36 @@ p4 {
     width: 47%;
 }
 
-.ol-popup {
-    position: absolute;
-    background-color: white;
-    -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-    filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid #cccccc;
-    bottom: 12px;
-    left: -50px;
-    min-width: 280px;
-}
-
-.ol-popup-closer {
-    text-decoration: none;
-    position: absolute;
-    top: 2px;
-    right: 8px;
-}
-
-#popup-content {
-    max-height: 200px;
-    overflow-y: auto;
+.rectangle1 {
+    height: 50px;
+    width: 100%;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #leaflet {
-    height: 500px;
-    width: 53%;
+    height: 613px;
+    width: 52%;
     float: right;
+}
+
+p5 {
+    float: left;
+    background-color: lightcyan;
+    width: 38%;
+    border-left: 15px solid lightblue;
+    border-right: 15px solid lightblue;
+    padding: 60px;
+    padding-bottom: 71px;
+    font-size: 17px;
+    overflow-block: hidden;
+}
+
+footer {
+    text-align: center;
+    padding: 3px;
+    background-color: lightblue;
+    color: white;
 }
