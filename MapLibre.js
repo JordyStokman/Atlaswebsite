@@ -14,3 +14,4 @@ var popup = new maplibregl.Popup({
 var marker = new maplibregl.Marker()
     .setLngLat([5.21835, 52.36645])
     .addTo(map);
+    //test
