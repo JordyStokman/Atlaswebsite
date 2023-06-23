@@ -6,12 +6,12 @@
 });
 
 var popup = new maplibregl.Popup({
-    closeButton: false, // set to true if you want a close button
-    closeOnClick: false // set to true if you want the pop-up to close when the map is clicked
+    closeButton: false, 
+    closeOnClick: false 
 });
 
-// Add a marker to the map
+// Adds a marker to the map
 var marker = new maplibregl.Marker()
     .setLngLat([5.21835, 52.36645])
     .addTo(map);
-    //test
+    

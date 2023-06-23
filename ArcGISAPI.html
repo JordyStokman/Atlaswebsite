@@ -63,17 +63,17 @@
             esriConfig.apiKey = "AAPK7559b245ac5a47f8b04ffd5ff7423160nueuaMS3gGQ3u9rkReM2fERDijX7W9WaeJ6zxVV_5pIIeH0yuikDTjORDmc6jrZE";
 
             const map = new Map({
-                basemap: "arcgis-topographic" // Basemap layer service
+                basemap: "arcgis-topographic" // Basemap
             });
 
             const view = new MapView({
                 map: map,
                 center: [5.386061114309225, 52.16314234773969], // Longitude, latitude
                 zoom: 7, // Zoom level
-                container: "viewDiv" // Div element
+                container: "viewDiv" // Kaart
             });
 
-            // External API applied: GeoJSON layer
+            // External API: GeoJSON
             const geojsonUrl = "https://demo.pygeoapi.io/covid-19/collections/cases_netherlands_hospitalized_per_municipality_polygons/items?f=json&limit=1000";
             const geojsonLayer = new GeoJSONLayer({
                 url: geojsonUrl,
@@ -110,8 +110,8 @@
                         type: "color",
                         field: "Aantal_per_100000",
                         stops: [
-                            { value: 0, color: "rgba(255, 255, 255, 0)" }, // Define the color at the minimum value
-                            { value: 150, color: "rgba(255, 0, 0, 1)" } // Define the color at the maximum value
+                            { value: 0, color: "rgba(255, 255, 255, 0)" },
+                            { value: 150, color: "rgba(255, 0, 0, 1)" }// Defines the colours
                         ]
                     }]
                 }
@@ -119,7 +119,7 @@
 
             map.add(geojsonLayer);
 
-            // Create a legend
+            // Creates a legend
             const legend = new Legend({
                 view: view,
                 layerInfos: [
@@ -130,7 +130,7 @@
                 ]
             });
 
-            // Add the legend to the view
+            // Adds the legend
             view.ui.add(legend, "bottom-right");
         });
     </script>
